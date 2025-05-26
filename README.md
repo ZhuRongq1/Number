@@ -12,7 +12,9 @@
 MINIST数据集由28×28灰度手写数字图像组成，共70000张图片，其中包括训练集图片60000张和测试集图片10000张，共有十个分类：0、1、2、3、4、5、6、7、8、9。
 
 
-[![pVSo4l8.jpg](https://s21.ax1x.com/2025/05/26/pVSo4l8.jpg)](https://imgse.com/i/pVSo4l8)
+<div style="text-align: center;">
+  <img src="https://s21.ax1x.com/2025/05/26/pVSo4l8.jpg" alt="图片描述" style="display: inline-block;">
+</div>
 
 ## 一、导入需要的库
 ```python
