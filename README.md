@@ -11,10 +11,10 @@
 ## MINIST数据集简介
 MINIST数据集由28×28灰度手写数字图像组成，共70000张图片，其中包括训练集图片60000张和测试集图片10000张，共有十个分类：0、1、2、3、4、5、6、7、8、9。
 
-
-<div style="text-align: center;">
-  <img src="https://s21.ax1x.com/2025/05/26/pVSo4l8.jpg" alt="图片描述" style="display: inline-block;">
+<div align="center">
+  <img src="https://s21.ax1x.com/2025/05/26/pVSo4l8.jpg" alt="图片描述">
 </div>
+
 
 ## 一、导入需要的库
 ```python
@@ -180,19 +180,20 @@ CrossEntropyLoss 是手写数字识别中的核心损失函数。它实际上是
 Softmax回归是一个线性多分类模型，在MINIST手写数字识别问题中，Softmax最终会给出预测值对于10个类别（0~9）出现的概率，最终模型的预测结果就是概率最大的类别。Softmax计算公式如下：
 
 $$\text{Softmax}(x_i) = \frac{e^{x_i}}{\sum_{j} e^{x_j}}$$
-其中分子的$z_i$是多分类中的第$i$类的输出值，分母将所有类别的输出值求和，使用指数函数来将其转换为概率，最终将神经网络上一层的原始数据归一化到$[0,1]$,使用指数函数的原因是因为上一层的数据有正有负，所以使用指数函数将其变为大于0的值。具体转换过程如下图所示，可以通过判断哪类的输出概率最大，来判断最后的分类结果。
+其中分子的$ z_i $是多分类中的第$i$类的输出值，分母将所有类别的输出值求和，使用指数函数来将其转换为概率，最终将神经网络上一层的原始数据归一化到$[0,1]$,使用指数函数的原因是因为上一层的数据有正有负，所以使用指数函数将其变为大于0的值。具体转换过程如下图所示，可以通过判断哪类的输出概率最大，来判断最后的分类结果。
 ### $Log$
 
   经过Softmax后，还要将其结果取$Log$​(对数),目的是将乘法转化为加法，从而减少计算量，同时保证函数的单调性，因为$ln(x)$单调递增且：
+
 $$
-ln(x)+ln(y)=ln(xy)
+\ln(x) + \ln(y) = \ln(xy)
 $$
 
 ### $NLLLoss$
 最终使用NLLLoss计算损失，损失函数定义为：
-$$
-Loss(\hat{Y}, Y) = -Y \log(\hat{Y})
-$$
+
+
+Loss(Ŷ, Y) = -Y * log(Ŷ) 
 #### 其中的参数含义：
 - $\hat{Y}$表示Softmax经过Log​后的值
 - $Y$为训练数据对应target的One-hot编码，表示此训练数据对应的target。
@@ -376,4 +377,4 @@ def test_mydata():
 if __name__ == '__main__':
     test_mydata()
 ```
-[本文参考文档] https://github.com/IronmanJay/ConvolutionalNeuralNetwork/tree/master/MinistHandWrittenDigitRecognition
+[本项目参考文档] https://github.com/IronmanJay/ConvolutionalNeuralNetwork/tree/master/MinistHandWrittenDigitRecognition
