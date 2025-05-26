@@ -8,6 +8,12 @@
 - torchvision 0.18.0
 - matplotlib 3.7.5
 
+## MINIST数据集简介
+MINIST数据集由28×28灰度手写数字图像组成，共70000张图片，其中包括训练集图片60000张和测试集图片10000张，共有十个分类：0、1、2、3、4、5、6、7、8、9。
+
+
+[![pVSo4l8.jpg](https://s21.ax1x.com/2025/05/26/pVSo4l8.jpg)](https://imgse.com/i/pVSo4l8)
+
 ## 一、导入需要的库
 ```python
 import torch
@@ -80,12 +86,19 @@ class Digit(nn.Module):
 ```
 本项目使用的激活函数为Relu激活函数，在此简单介绍一下Relu激活函数：
 Relu的全称为修正线性单元(Rectified Linear Unit) ，其函数表达式和图像如下所示：
+
 $$
-Relu=\begin{cases}
-    x,x>0\\0,x<=0
+\text{ReLU}(x) = \max(0, x) = 
+\begin{cases} 
+x & x \geq 0 \\
+0 &  x < 0 
 \end{cases}
 $$
 
+ 
+
+
+[![pVSoUF1.png](https://s21.ax1x.com/2025/05/26/pVSoUF1.png)](https://imgse.com/i/pVSoUF1)
 ### Relu的优点如下：
 由Relu的原始图像和导数图像可知，Relu可能使部分神经元的值变为0,降低神经网络复杂性,从而有效缓解过拟合的问题。由于当x>0时，Relu的梯度恒为1，所以随着神经网络越来越复杂，不会导致梯度累乘后变得很大或很小，从而不会发生梯度爆炸或梯度消失问题。Relu的计算非常简单，提高了神经网络的效率
 
